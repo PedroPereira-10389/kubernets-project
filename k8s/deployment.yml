@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: next-node-webapp
+  name: next-node-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: next-node-webapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: next-node-webapp
+    spec:
+      containers:
+      - image: docker.io/noutel/next-node-api:latest
+        name: webapp
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 3000 
+status: {}
